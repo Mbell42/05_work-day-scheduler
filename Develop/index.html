@@ -40,17 +40,21 @@
       $(document).ready(function() {
 
       //testing moment.js is working properly
-      console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      console.log(moment().format('dddd') + moment().format("MMM Do"));
       
       //linking element with id 'currentDay' with moment.js' updated current date
       let currentDay = $("#currentDay");
-      let currentDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+      let currentDate = moment().format('dddd') + " " + moment().format("MMM Do");
 
       currentDay.text(currentDate);
 
-      //may not need this line
+      //may not need variable in next line
       // let container = $(".container");
+
       
+
+
       
       
       
