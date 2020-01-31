@@ -1,0 +1,38 @@
+Workday Scheduler asset list
+
+----required features----
+--Header--
+- h1
+	- "Work Day Scheduler"
+
+- p
+	- "A Simple calendar app for scheduling your workday"
+
+
+- p
+	- weekDay + ", " + month + monthDay + "nd/rd/th"
+
+--Body--
+- list with three columns and a row for each hour of the day.
+	- first column will display hour of day.
+	- second column will display a blank textarea initially, and will allow the user to type input.  Upon hitting 	enter, the input will be saved into the textarea, and the textarea background color will change.
+	- third column will contain 'blue buttons'
+
+
+
+----required concepts----
+- storing / retrieving data using " "
+- ajax / api calls using ajax({url:"", method: GET}) and '.then(function(response))' promise
+- parsing json objects using dot method
+- writing to html ".text()"
+- emptying html divs ".empty()"
+
+
+
+----questions----
+
+- What are the blue buttons on the right? SAVE FEATURE
+
+- is this a day planner or work scheduler? DAY PLANER
+
+- Is an unordered list the best way to structure the 'timeBlocksDiv', or should I rather build rows and columns with divs using bootstrap? USE BOOTSTRAP
