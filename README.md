@@ -46,3 +46,5 @@ Progress:
 2020.01.31.0335 - Corrected timestamp of previous commit. Updated code using moment.js library to conform to correct date format for project.
 
 2020.01.31.0424 - Added pseudocode to index.html. Added for loop that will build the timeblocks rows and columns, though the function is WIP.
+
+2020.01.31.0540 - For index.html, I completed first pass of 'createTimeBlocks' function, and added comments to explain process.

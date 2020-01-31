@@ -45,16 +45,73 @@
       
       //linking element with id 'currentDay' with moment.js' updated current date
       let currentDay = $("#currentDay");
+      //Make variable for desired moment.js data
       let currentDate = moment().format('dddd') + " " + moment().format("MMM Do");
-
+      //Make variable to display desiredmoment.js data in desired element
       currentDay.text(currentDate);
 
-      //may not need variable in next line
+      //may not need variable in next line; we will see
       let container = $(".container");
 
-      for (i = 0; i < 13; i++) {
-        
-      }
+      //make function to create grid in ''.container'
+      function createTimeBlocks() {
+         //Make for loop to create rows and columns with bootstrap classes for main area
+        for (i = 1; i <= 12; i++) {
+          // In for loop:
+          // Create div with class ‘row’ and Id row[i]
+          let timeBlock = $("<div>").addClass("row");
+          timeBlock.attr("id", "row" + i);
+          //check to see timeBlocks are created
+          console.log(timeBlock);
+
+          // Create three columns of class col-md-2, col-md-8, col-md-2, and desired id's (hour, text, save)
+          let colHour = $("<div>").addClass("col-sm-2");
+          colHour.attr("id", "hour" + i);
+          console.log(colHour);
+          let colText = $("<div>").addClass("col-sm-8");
+          colText.attr("id", "text" + i);
+          console.log(colText);
+          let colSave= $("<div>").addClass("col-sm-2");
+          colSave.attr("id", "save"+ i);
+          console.log(colSave);
+          
+          // For column hour, append a p element with ”[i] + 'AM'”
+          let hourStamp = $("<p>");
+          $(hourStamp).text(i + " AM");
+          $(colHour).append(hourStamp);
+          console.log(hourStamp);
+
+          // For column text, append a textarea
+          let textStamp = $("<textarea>");
+          $(colText).append(textStamp);
+          console.log(textStamp);
+
+          // For column save, append a button with an appended p element with "Save"
+          let saveButton = $("<button>").addClass("");
+          let saveStamp = $("<p>").addClass("");
+          saveStamp.text("Save");
+          $(saveButton).append(saveStamp);
+          $(colSave).append(saveButton);
+          console.log(saveButton);
+
+          //Append columns to timeBlock rows
+          $(timeBlock).append(colHour, colText, colSave);
+
+          //append timeBlock to .container
+          $(container).append(timeBlock);
+      };
+      };
+      // *Don’t forget to Call functions*      
+      createTimeBlocks();
+
+
+// Make function to store textarea input on click for rows when blue button is clicked
+
+
+// Make and call function to retrieve stored data on document ready
+
+
+// Make function to check current time and set row textarea bg colors dynamically based on future, current hour, and past
 
 
 
