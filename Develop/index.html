@@ -36,33 +36,32 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-      //wait until Dom has completed loading
+      // Wait until Dom has completed loading
       $(document).ready(function() {
 
-      //testing moment.js is working properly
-      // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+      // Testing moment.js is working properly
+      // Console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
       console.log(moment().format('dddd') + moment().format("MMM Do"));
       
-      //linking element with id 'currentDay' with moment.js' updated current date
+      // Linking element with id 'currentDay' with moment.js' updated current date
       let currentDay = $("#currentDay");
-      //Make variable for desired moment.js data
+      // Make variable for desired moment.js data
       let currentDate = moment().format('dddd') + " " + moment().format("MMM Do");
-      //Make variable to display desiredmoment.js data in desired element
+      // Make variable to display desiredmoment.js data in desired element
       currentDay.text(currentDate);
 
-      //may not need variable in next line; we will see
       let container = $(".container");
 
-      //make function to create grid in ''.container'
+      // Make function to create grid in ''.container'
       function createTimeBlocks() {
-         //Make for loop to create rows and columns with bootstrap classes for main area
+         // Make for loop to create rows and columns with bootstrap classes for main area
         for (i = 1; i <= 24; i++) {
           
           // In for loop:
           // Create div with class ‘row’ and Id row[i]
           let timeBlock = $("<div>").addClass("row");
           timeBlock.attr("id", "row" + i);
-          //check to see timeBlocks are created
+          // Check to see timeBlocks are created
           console.log(timeBlock);
 
           // Create three columns of class col-md-2, col-md-8, col-md-2, and
@@ -78,10 +77,11 @@
           console.log(colSave);
           
           // For colHour, append a p element with ”[i] + 'AM'”
+          // Freating elements
           let hourStamp = $("<p>");
           let am = " AM";
           let pm = " PM";
-          //conditional statements that govern whether am or pm is displayed in the hourStamp
+          // Conditional statements that govern whether am or pm is displayed in the hourStamp
           if (i === 24) {
             $(hourStamp).text((i - 12) + am);
           }
@@ -94,11 +94,16 @@
           else {
             $(hourStamp).text(i + am);
           }
+          // For colHour, append hourStamp
           $(colHour).append(hourStamp);
           console.log(hourStamp);
 
-          // For colText, append a textarea
+          // Use a variable to create a textarea
           let textStamp = $("<textarea>");
+          // Setting textStamp to max width of column
+          textStamp.css("width", "100%");
+
+          // For colText, append a textarea
           $(colText).append(textStamp);
           console.log(textStamp);
 
@@ -110,10 +115,10 @@
           $(colSave).append(saveButton);
           console.log(saveButton);
 
-          //Append columns to timeBlock rows
+          // Append columns to timeBlock rows
           $(timeBlock).append(colHour, colText, colSave);
 
-          //append timeBlock to .container
+          // Append timeBlock to .container
           $(container).append(timeBlock);
         
       };
