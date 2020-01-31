@@ -35,4 +35,5 @@ Workday Scheduler asset list
 
 - is this a day planner or work scheduler? DAY PLANER
 
-- Is an unordered list the best way to structure the 'timeBlocksDiv', or should I rather build rows and columns with divs using bootstrap? USE BOOTSTRAP
+- Is an unordered list the best way to structure the 'timeBlocksDiv',
+or should I rather build rows and columns with divs using bootstrap? USE BOOTSTRAP

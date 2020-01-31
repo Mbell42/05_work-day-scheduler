@@ -44,3 +44,5 @@ Progress:
 2020.01.31.0330 - Initial commit.  Setup folder structure, and initialized the readme. Created asset-list.txt in assets folder and moved 05-third-party-apis-homework-demo.gif into a newly created reference folder.  Added script section to bottom of index.html, and created document(ready) function.  In this function I linked up the element with the id of 'currentDay' to moment.js.  I also added some comments to the code to explain each section.
 
 2020.01.31.0335 - Corrected timestamp of previous commit. Updated code using moment.js library to conform to correct date format for project.
+
+2020.01.31.0424 - Added pseudocode to index.html. Added for loop that will build the timeblocks rows and columns, though the function is WIP.
