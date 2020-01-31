@@ -48,3 +48,5 @@ Progress:
 2020.01.31.0424 - Added pseudocode to index.html. Added for loop that will build the timeblocks rows and columns, though the function is WIP.
 
 2020.01.31.0540 - For index.html, I completed first pass of 'createTimeBlocks' function, and added comments to explain process.
+
+2020.01.31.0540 - For index.html, I reviewed first pass of 'createTimeBlocks' function, and completed second pass of said function, altering the for loop tp create 2 timeblocks, and adding conditional statements to seperate the timeblocks into 'am' vs 'pm'.
