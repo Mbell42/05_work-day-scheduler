@@ -52,3 +52,5 @@ Progress:
 2020.01.31.0705 - For index.html, I reviewed first pass of 'createTimeBlocks' function, and completed second pass of said function, altering the for loop tp create 2 timeblocks, and adding conditional statements to seperate the timeblocks into 'am' vs 'pm'.
 
 2020.01.31.0710 - Corrected timestamp of previous commit. For index.html, I added code to set the textarea to 100% width of its parent column.
+
+2020.01.31.2005 - For index.html, I added more comments and console.logs to the script area of the code to further detail code and to allow quality control through console.  I changed the local variables 'textStamp' and 'hourStamp' to be global.

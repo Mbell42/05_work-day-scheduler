@@ -38,11 +38,24 @@
     <script>
       // Wait until Dom has completed loading
       $(document).ready(function() {
+        // Console log that document is loaded and ready
+        console.log("document is loaded and ready");
 
-      // Testing moment.js is working properly
+      // Testing moment.js is working properly, and testing how to use properly
       // Console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
-      console.log(moment().format('dddd') + moment().format("MMM Do"));
+      //log current time and date at top of log
+      console.log(moment().format('dddd') + moment().format("MMM Do"));   
+      console.log(moment().calendar());  
+      // console.log(moment().startOf('hour').fromNow());
+      // console.log(moment().endOf('hour').fromNow());
+      // console.log(parseInt(moment().startOf('hour').fromNow()));
+      console.log(moment().format());
+      // currentTime = moment().format();
+      // console.log(nextHour);
+      // console.log(parseInt(nextHour));
       
+
+
       // Linking element with id 'currentDay' with moment.js' updated current date
       let currentDay = $("#currentDay");
       // Make variable for desired moment.js data
@@ -54,7 +67,9 @@
 
       // Make function to create grid in ''.container'
       function createTimeBlocks() {
-         // Make for loop to create rows and columns with bootstrap classes for main area
+        // Console log start of function
+        console.log("start of 'createTimeBlocks' function");
+        // Make for loop to create rows and columns with bootstrap classes for main area
         for (i = 1; i <= 24; i++) {
           
           // In for loop:
@@ -69,18 +84,22 @@
           let colHour = $("<div>").addClass("col-sm-2");
           colHour.attr("id", "hour" + i);
           console.log(colHour);
+          
           let colText = $("<div>").addClass("col-sm-8");
           colText.attr("id", "text" + i);
           console.log(colText);
+          
           let colSave= $("<div>").addClass("col-sm-2");
           colSave.attr("id", "save"+ i);
           console.log(colSave);
           
           // For colHour, append a p element with ”[i] + 'AM'”
-          // Freating elements
-          let hourStamp = $("<p>");
+          // Creating elements
+          hourStamp = $("<p>").addClass("hour-stamp");
+          hourStamp.attr("id", "hourStamp"+ i);
           let am = " AM";
           let pm = " PM";
+          
           // Conditional statements that govern whether am or pm is displayed in the hourStamp
           if (i === 24) {
             $(hourStamp).text((i - 12) + am);
@@ -99,37 +118,69 @@
           console.log(hourStamp);
 
           // Use a variable to create a textarea
-          let textStamp = $("<textarea>");
+          textStamp = $("<textarea>");
+          textStamp.attr("id", "textArea"+ i);
           // Setting textStamp to max width of column
           textStamp.css("width", "100%");
-
           // For colText, append a textarea
           $(colText).append(textStamp);
           console.log(textStamp);
 
           // For colSave, append a button with an appended p element with "Save"
           let saveButton = $("<button>").addClass("");
+          saveButton.attr("id", "saveButton"+ i);
+          console.log(saveButton);
+          
           let saveStamp = $("<p>").addClass("");
+          saveStamp.attr("id", "saveStamp"+ i);
           saveStamp.text("Save");
+          console.log(saveStamp);
+
           $(saveButton).append(saveStamp);
           $(colSave).append(saveButton);
-          console.log(saveButton);
+          
 
           // Append columns to timeBlock rows
           $(timeBlock).append(colHour, colText, colSave);
-
           // Append timeBlock to .container
           $(container).append(timeBlock);
-        
+          
+          // Console log end of row
+          console.log("end of 'row" + i + "'");
+        };
+        // Console log end of function
+        console.log("end of 'createTimeBlocks' function");
+        console.log("-----");
       };
-      };
-      // *Don’t forget to Call functions*      
-      createTimeBlocks();
-
-
-      // Make function to check current time and set row textarea bg colors dynamically
+      
+      
+      // Check current time and set row textarea bg colors dynamically
       //based on future, current hour, and past
+      function setRowColors() {
+        // Console log start of function
+        console.log("start of 'setRowColors' function");
 
+        let currentTime = moment().format();
+        let nextHour = currentTime.substr(currentTime.length - 5); 
+        console.log("next hour is " + nextHour);
+        console.log("next hour parsed as integer: " + parseInt(nextHour));
+        
+        // let hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
+        console.log(parseInt($(hourStamp).attr('id').replace(/hourStamp/, '')));
+
+        if (parseInt(nextHour) > hourStamp) {
+          $(textStamp).css("background-color","blue");
+        }
+        else if (parseInt(nextHour) == hourStamp) {
+          $(textStamp).css("background-color","green");
+        }
+        else {
+          $(textStamp).css("background-color","gray");
+        }    
+        // Console log end of function
+        console.log("end of 'setRowColors' function");  
+        console.log("-----");  
+      };
 
 
       // Make function to store textarea input on click for rows when blue button is clicked
@@ -139,7 +190,9 @@
       // Make and call function to retrieve stored data on document ready
 
 
-
+      // *Don’t forget to Call functions*      
+      createTimeBlocks();
+      setRowColors();
       
 
 
