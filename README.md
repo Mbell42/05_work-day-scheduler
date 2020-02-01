@@ -54,3 +54,5 @@ Progress:
 2020.01.31.0710 - Corrected timestamp of previous commit. For index.html, I added code to set the textarea to 100% width of its parent column.
 
 2020.01.31.2005 - For index.html, I added more comments and console.logs to the script area of the code to further detail code and to allow quality control through console.  I changed the local variables 'textStamp' and 'hourStamp' to be global.
+
+2020.01.31.2030 - For index.html, I added more comments and console.logs to the script area of the code to further detail the code and to allow for ease of quality control through console.  I moved the function 'setRowColors()' inside of the function 'createTimeBlocks()' near the end of the function.  This allowed for colors to dynamically appear in the textareas based on what the current time is.

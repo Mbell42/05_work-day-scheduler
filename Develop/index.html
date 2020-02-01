@@ -73,6 +73,9 @@
         for (i = 1; i <= 24; i++) {
           
           // In for loop:
+          // Console log start of row
+          console.log("start of 'row" + i + "'");
+          
           // Create div with class ‘row’ and Id row[i]
           let timeBlock = $("<div>").addClass("row");
           timeBlock.attr("id", "row" + i);
@@ -144,7 +147,41 @@
           $(timeBlock).append(colHour, colText, colSave);
           // Append timeBlock to .container
           $(container).append(timeBlock);
+
+          // Setting variable 'hourStampNumb' to be an integer that is equal to the number
+          //in the id of the current row's hourStamp
+          hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
+          console.log("current row parsed as integer: ");
+          console.log(parseInt($(hourStamp).attr('id').replace(/hourStamp/, '')));
           
+          // Check current time and set row textarea bg colors dynamically
+          //based on future, current hour, and past
+          function setRowColors() {
+            // Console log start of function
+            console.log("start of 'setRowColors' function");
+
+            let currentTime = moment().format();
+            let nextHour = currentTime.substr(currentTime.length - 5); 
+            console.log("next hour is " + nextHour);
+            console.log("next hour parsed as integer: ");
+            console.log(parseInt(nextHour));
+            
+            if (parseInt(nextHour) > hourStampNumb) {
+              $(textStamp).css("background-color","blue");
+            }
+            else if (parseInt(nextHour) == hourStampNumb) {
+              $(textStamp).css("background-color","green");
+            }
+            else {
+              $(textStamp).css("background-color","gray");
+            }    
+            // Console log end of function
+            console.log("end of 'setRowColors' function");  
+            console.log("-----");  
+          };
+          // *Don’t forget to Call functions*  
+          setRowColors();
+
           // Console log end of row
           console.log("end of 'row" + i + "'");
         };
@@ -154,33 +191,7 @@
       };
       
       
-      // Check current time and set row textarea bg colors dynamically
-      //based on future, current hour, and past
-      function setRowColors() {
-        // Console log start of function
-        console.log("start of 'setRowColors' function");
-
-        let currentTime = moment().format();
-        let nextHour = currentTime.substr(currentTime.length - 5); 
-        console.log("next hour is " + nextHour);
-        console.log("next hour parsed as integer: " + parseInt(nextHour));
-        
-        // let hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
-        console.log(parseInt($(hourStamp).attr('id').replace(/hourStamp/, '')));
-
-        if (parseInt(nextHour) > hourStamp) {
-          $(textStamp).css("background-color","blue");
-        }
-        else if (parseInt(nextHour) == hourStamp) {
-          $(textStamp).css("background-color","green");
-        }
-        else {
-          $(textStamp).css("background-color","gray");
-        }    
-        // Console log end of function
-        console.log("end of 'setRowColors' function");  
-        console.log("-----");  
-      };
+      
 
 
       // Make function to store textarea input on click for rows when blue button is clicked
@@ -192,7 +203,7 @@
 
       // *Don’t forget to Call functions*      
       createTimeBlocks();
-      setRowColors();
+      
       
 
 
