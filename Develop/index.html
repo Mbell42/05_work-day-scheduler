@@ -55,7 +55,6 @@
       // console.log(parseInt(nextHour));
       
 
-
       // Linking element with id 'currentDay' with moment.js' updated current date
       let currentDay = $("#currentDay");
       // Make variable for desired moment.js data
@@ -125,6 +124,7 @@
           textStamp = $("<textarea>");
           textStamp.addClass("textStamp");
           textStamp.attr("id", "textArea"+ i);
+          textStamp.attr("placeholder", "");
           // Setting textStamp to max width of column
           textStamp.css("width", "100%");
           // For colText, append a textarea
@@ -144,7 +144,6 @@
           $(saveButton).append(saveStamp);
           $(colSave).append(saveButton);
           
-
           // Append columns to timeBlock rows
           $(timeBlock).append(colHour, colText, colSave);
           // Append timeBlock to .container
@@ -155,13 +154,6 @@
           hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
           console.log("current row parsed as integer: ");
           console.log("hourStampNumb is " + hourStampNumb);
-
-          // Set variable equal to each textStamp id #
-          // let inputNumb = parseInt($(textStamp).attr('id').replace(/textArea/, ''));
-          // console.log(inputNumb);
-          // textContent = $("#textArea"+ inputNumb)
-          
-          
           
           // Check current time and set row textarea bg colors dynamically
           //based on future, current hour, and past
@@ -205,49 +197,628 @@
            // Console log end of loop
           console.log("end of loop");
 
-          // Make function to store textarea input on click for rows when blue button is clicked
-        $(".saveButton").on("click", function (event) {
+          //START OF ON CLICK FUNCTIONS
+          // Make functions to store textarea input on click for rows when blue button is clicked...  
+          // I had tried to refactor several ways, but kept running into issues I could not solve in time
+          
+          //onClick function for timeBlock1
+          $(save1).on("click", function (event) {
             //prevent initial submission
             event.preventDefault();
             // Console log start of 'storeText' function
-            console.log("start of storeText onClick function");
+            console.log("start of storeText1 onClick function");
 
-            // Set variable equal to value of textarea
-            // userInput = $(this.textStamp.val());
-            userInput = $(this).closest('textarea').find('texStamp').val();
-            // userInputString = $(JSON.stringify(userInput));
-            console.log("User Input is '" + userInput + "'");
- 
-            inputHour = $(this.hourStamp);
-            console.log(inputHour);
-            // Locally Store input that is in current row's textarea
-            localStorage.setItem(inputHour, JSON.stringify(userInput));
-            console.log("storing entry...");
-            
-            alert(localStorage.getItem(inputHour) + " has been stored");
+            // Setting variables for the value of textArea1
+            text1 = $("#textArea1").val();
+            console.log("input is '" + text1 + "'");
 
-            // Console log end of 'storeText' function
-            console.log("end of storeText onClick function");
+            // Setting variables for the value of saveButton1
+            save1 = $("#saveButton1");
+
+            if (text1 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("1:00 am", text1);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText1 onClick function");
         });
+      //onClick function for timeBlock2
+      $(save2).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText2 onClick function");
+
+            // Setting variables for the value of textArea2
+            text2 = $("#textArea2").val();
+            console.log("input is '" + text2 + "'");
+
+            // Setting variables for the value of saveButton2
+            save2 = $("#saveButton2");
+
+            if (text2 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("2:00 am", text2);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText2 onClick function");
+        });
+        //onClick function for timeBlock3
+        $(save3).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText3 onClick function");
+
+            // Setting variables for the value of textArea3
+            let text3 = $("#textArea3").val();
+            console.log("input is '" + text3 + "'");
+
+            // Setting variables for the value of saveButton3
+            save3 = $("#saveButton3");
+
+            if (text3 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("3:00 am", text3);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText3 onClick function");
+        });
+        //onClick function for timeBlock4
+        $(save4).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText4 onClick function");
+
+            // Setting variables for the value of textArea4
+            text4 = $("#textArea4").val();
+            console.log("input is '" + text4 + "'");
+
+            // Setting variables for the value of saveButton4
+            save4 = $("#saveButton4");
+
+            if (text4 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("4:00 am", text4);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText4 onClick function");
+        });
+        //onClick function for timeBlock5
+        $(save5).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText5 onClick function");
+
+            // Setting variables for the value of textArea5
+            text5 = $("#textArea5").val();
+            console.log("input is '" + text5 + "'");
+
+            // Setting variables for the value of saveButton5
+            save5 = $("#saveButton5");
+
+            if (text5 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("5:00 am", text5);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText5 onClick function");
+        });
+        //onClick function for timeBlock6
+        $(save6).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText6 onClick function");
+
+            // Setting variables for the value of textArea6
+            text6 = $("#textArea6").val();
+            console.log("input is '" + text6 + "'");
+
+            // Setting variables for the value of saveButton6
+            save6 = $("#saveButton6");
+
+            if (text6 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("6:00 am", text6);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText6 onClick function");
+        });
+        //onClick function for timeBlock7
+        $(save7).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText7 onClick function");
+
+            // Setting variables for the value of textArea7
+            text7 = $("#textArea7").val();
+            console.log("input is '" + text7 + "'");
+
+            // Setting variables for the value of saveButton7
+            save7 = $("#saveButton7");
+
+            if (text7 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("11:00 am", text7);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText7 onClick function");
+        });
+        //onClick function for timeBlock8
+        $(save8).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText8 onClick function");
+
+            // Setting variables for the value of textArea8
+            text8 = $("#textArea8").val();
+            console.log("input is '" + text8 + "'");
+
+            // Setting variables for the value of saveButton8
+            save8 = $("#saveButton8");
+
+            if (text8 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("8:00 am", text8);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText8 onClick function");
+        });
+        //onClick function for timeBlock9
+        $(save9).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText9 onClick function");
+
+            // Setting variables for the value of textArea9
+            text9 = $("#textArea9").val();
+            console.log("input is '" + text9 + "'");
+
+            // Setting variables for the value of saveButton9
+            save9 = $("#saveButton9");
+
+            if (text9 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("9:00 am", text9);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText9 onClick function");
+        });
+        //onClick function for timeBlock10
+        $(save10).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText10 onClick function");
+
+            // Setting variables for the value of textArea10
+            text10 = $("#textArea10").val();
+            console.log("input is '" + text10 + "'");
+
+            // Setting variables for the value of saveButton10
+            save10 = $("#saveButton10");
+
+            if (text10 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("10:00 am", text10);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText10 onClick function");
+        });
+        //onClick function for timeBlock11
+        $(save11).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText11 onClick function");
+
+            // Setting variables for the value of textArea11
+            text11 = $("#textArea11").val();
+            console.log("input is '" + text11 + "'");
+
+            // Setting variables for the value of saveButton11
+            save11 = $("#saveButton11");
+
+            if (text11 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("11:00 am", text11);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText11 onClick function");
+        });
+        //onClick function for timeBlock12
+        $(save12).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText12 onClick function");
+
+            // Setting variables for the value of textArea12
+            text12 = $("#textArea12").val();
+            console.log("input is '" + text12 + "'");
+
+            // Setting variables for the value of saveButton12
+            save12 = $("#saveButton12");
+
+            if (text12 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("12:00 am", text4);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText12 onClick function");
+        });
+        //onClick function for timeBlock13
+        $(save13).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText13 onClick function");
+
+            // Setting variables for the value of textArea13
+            text13 = $("#textArea13").val();
+            console.log("input is '" + text13 + "'");
+
+            // Setting variables for the value of saveButton13
+            save13 = $("#saveButton13");
+
+            if (text13 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("1:00 pm", text13);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText13 onClick function");
+        });
+        //onClick function for timeBlock14
+        $(save14).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText14 onClick function");
+
+            // Setting variables for the value of textArea14
+            text14 = $("#textArea14").val();
+            console.log("input is '" + text14 + "'");
+
+            // Setting variables for the value of saveButton14
+            save14 = $("#saveButton14");
+
+            if (text14 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("2:00 pm", text14);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText14 onClick function");
+        });
+        //onClick function for timeBlock15
+        $(save15).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText15 onClick function");
+
+            // Setting variables for the value of textArea15
+            text15 = $("#textArea15").val();
+            console.log("input is '" + text15 + "'");
+
+            // Setting variables for the value of saveButton15
+            save15 = $("#saveButton15");
+
+            if (text15 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("3:00 pm", text15);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText15 onClick function");
+        });
+        //onClick function for timeBlock16
+        $(save16).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText16 onClick function");
+
+            // Setting variables for the value of textArea16
+            text16 = $("#textArea16").val();
+            console.log("input is '" + text16 + "'");
+
+            // Setting variables for the value of saveButton16
+            save16 = $("#saveButton16");
+
+            if (text16 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("4:00 pm", text16);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText16 onClick function");
+        });
+        //onClick function for timeBlock17
+        $(save17).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText17 onClick function");
+
+            // Setting variables for the value of textArea17
+            text17 = $("#textArea17").val();
+            console.log("input is '" + text17 + "'");
+
+            // Setting variables for the value of saveButton17
+            save17 = $("#saveButton17");
+
+            if (text17 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("5:00 pm", text17);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText17 onClick function");
+        });
+        //onClick function for timeBlock18
+        $(save18).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText18 onClick function");
+
+            // Setting variables for the value of textArea18
+            text18 = $("#textArea18").val();
+            console.log("input is '" + text18 + "'");
+
+            // Setting variables for the value of saveButton18
+            save18 = $("#saveButton18");
+
+            if (text18 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("6:00 pm", text18);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText18 onClick function");
+        });
+        //onClick function for timeBlock19
+        $(save19).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText19 onClick function");
+
+            // Setting variables for the value of textArea19
+            text19 = $("#textArea19").val();
+            console.log("input is '" + text19 + "'");
+
+            // Setting variables for the value of saveButton19
+            save19 = $("#saveButton19");
+
+            if (text19 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("7:00 pm", text19);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText19 onClick function");
+        });
+        //onClick function for timeBlock20
+        $(save20).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText20 onClick function");
+
+            // Setting variables for the value of textArea20
+            text20 = $("#textArea20").val();
+            console.log("input is '" + text20 + "'");
+
+            // Setting variables for the value of saveButton20
+            save20 = $("#saveButton20");
+
+            if (text20 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("8:00 pm", text20);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText20 onClick function");
+        });
+        //onClick function for timeBlock21
+        $(save21).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText21 onClick function");
+
+            // Setting variables for the value of textArea21
+            text21 = $("#textArea21").val();
+            console.log("input is '" + text21 + "'");
+
+            // Setting variables for the value of saveButton21
+            save21 = $("#saveButton21");
+
+            if (text21 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("9:00 pm", text21);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText21 onClick function");
+        });
+        //onClick function for timeBlock22
+        $(save22).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText22 onClick function");
+
+            // Setting variables for the value of textArea22
+            text22 = $("#textArea22").val();
+            console.log("input is '" + text22 + "'");
+
+            // Setting variables for the value of saveButton22
+            save22 = $("#saveButton22");
+
+            if (text22 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("10:00 pm", text22);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText22 onClick function");
+        });
+        //onClick function for timeBlock23
+        $(save23).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText23 onClick function");
+
+            // Setting variables for the value of textArea23
+            text23 = $("#textArea23").val();
+            console.log("input is '" + text23 + "'");
+
+            // Setting variables for the value of saveButton23
+            save23 = $("#saveButton23");
+
+            if (text23 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("11:00 pm", text23);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText23 onClick function");
+        });
+        //onClick function for timeBlock24
+        $(save24).on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText24 onClick function");
+
+            // Setting variables for the value of textArea24
+            text24 = $("#textArea24").val();
+            console.log("input is '" + text24 + "'");
+
+            // Setting variables for the value of saveButton24
+            save24 = $("#saveButton24");
+
+            if (text24 !== "") {
+                alert("storing entry...");
+                localStorage.setItem("12:00 am", text24);
+              }
+              else {
+                alert("entries can't be blank!");
+              }
+
+              console.log("end of storeText24 onClick function");
+        });
+
+        //END OF ONCLICK FUNCTIONS
+
+        // Make and call function to retrieve stored entries on document ready
+        function retrieveData() {
+          console.log("retrieving entries");
+          
+          $("#textArea1").attr("placeholder", (localStorage.getItem("1:00 am")));
+          $("#textArea2").attr("placeholder", (localStorage.getItem("2:00 am")));
+          $("#textArea3").attr("placeholder", (localStorage.getItem("3:00 am")));
+          $("#textArea4").attr("placeholder", (localStorage.getItem("4:00 am")));
+          $("#textArea5").attr("placeholder", (localStorage.getItem("5:00 am")));
+          $("#textArea6").attr("placeholder", (localStorage.getItem("6:00 am")));
+          $("#textArea7").attr("placeholder", (localStorage.getItem("7:00 am")));
+          $("#textArea8").attr("placeholder", (localStorage.getItem("8:00 am")));
+          $("#textArea9").attr("placeholder", (localStorage.getItem("9:00 am")));
+          $("#textArea10").attr("placeholder", (localStorage.getItem("10:00 am")));
+          $("#textArea11").attr("placeholder", (localStorage.getItem("11:00 am")));
+          $("#textArea12").attr("placeholder", (localStorage.getItem("12:00 pm")));
+          $("#textArea13").attr("placeholder", (localStorage.getItem("1:00 pm")));
+          $("#textArea14").attr("placeholder", (localStorage.getItem("2:00 pm")));
+          $("#textArea15").attr("placeholder", (localStorage.getItem("3:00 pm")));
+          $("#textArea16").attr("placeholder", (localStorage.getItem("4:00 pm")));
+          $("#textArea17").attr("placeholder", (localStorage.getItem("5:00 pm")));
+          $("#textArea18").attr("placeholder", (localStorage.getItem("6:00 pm")));
+          $("#textArea19").attr("placeholder", (localStorage.getItem("7:00 pm")));
+          $("#textArea20").attr("placeholder", (localStorage.getItem("8:00 pm")));
+          $("#textArea21").attr("placeholder", (localStorage.getItem("9:00 pm")));
+          $("#textArea22").attr("placeholder", (localStorage.getItem("10:00 pm")));
+          $("#textArea23").attr("placeholder", (localStorage.getItem("11:00 pm")));
+          $("#textArea24").attr("placeholder", (localStorage.getItem("12:00 am")));
+
+        };
+        retrieveData();
 
         // Console log end of function
         console.log("end of 'createTimeBlocks' function");
         console.log("---------");
       };
       
-
-      // Make and call function to retrieve stored data on document ready
-      function retrieveData() {
-        localStorage.getItem(inputHour);
-      };
-      // retrieveData();
-
-
-
-
       // *Don’t forget to Call functions*      
       createTimeBlocks();
-
 
       });
     </script>

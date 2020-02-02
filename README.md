@@ -59,4 +59,6 @@ Progress:
 
 2020.02.01.1900 - For index.html, I updated the positions of several variables to be within the for loop of the timeBlocks() function.  I have been tinkering with trying to store local data, but have so far been able to store 'undefined.'  I will submit what I have currently, and continue to work on a solution to issue with storing data.
 
-2020.02.01.~~~~ - For index.html, I updated the setRowColors() function to include styles for the hourStamp and saveStamp.  I have continued tinkering with trying to store local data, but have so far been able to store 'undefined.'
+2020.02.01.2025 - For index.html, I updated the setRowColors() function to include styles for the hourStamp and saveStamp.  I have continued tinkering with trying to store local data, but have so far been able to store 'undefined.'
+
+2020.02.01.2345 - For index.html, I fixed store local data issue and created get locl data function that runs when page loads.
