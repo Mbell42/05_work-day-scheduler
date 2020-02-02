@@ -123,6 +123,7 @@
 
           // Use a variable to create a textarea
           textStamp = $("<textarea>");
+          textStamp.addClass("textStamp");
           textStamp.attr("id", "textArea"+ i);
           // Setting textStamp to max width of column
           textStamp.css("width", "100%");
@@ -153,13 +154,14 @@
           //in the id of the current row's hourStamp
           hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
           console.log("current row parsed as integer: ");
-          console.log(hourStampNumb);
+          console.log("hourStampNumb is " + hourStampNumb);
 
           // Set variable equal to each textStamp id #
-          inputNumb = parseInt($(textStamp).attr('id').replace(/textArea/, ''));
-          console.log(inputNumb);
-          userInput = $("#textArea"+ i).val();
-          console.log("User Input is " + userInput);
+          // let inputNumb = parseInt($(textStamp).attr('id').replace(/textArea/, ''));
+          // console.log(inputNumb);
+          // textContent = $("#textArea"+ inputNumb)
+          
+          
           
           // Check current time and set row textarea bg colors dynamically
           //based on future, current hour, and past
@@ -168,12 +170,19 @@
             console.log("---");  
             console.log("start of 'setRowColors' function");
 
+            // Set hourStamp color and padding
+            $(hourStamp).css("background-color","gray");
+            $(hourStamp).css("padding","10px");
+            
+            // Set saveStamp padding
+            $(saveStamp).css("padding","8px");
+
             let currentTime = moment().format();
             let nextHour = currentTime.substr(currentTime.length - 5); 
             console.log("next hour is " + nextHour);
-            console.log("next hour parsed as integer: ");
+            console.log("next hour parsed as integer below: ");
             console.log(parseInt(nextHour));
-            
+           
             if (parseInt(nextHour) > hourStampNumb) {
               $(textStamp).css("background-color","blue");
             }
@@ -193,7 +202,6 @@
           // Console log end of row
           console.log("end of 'row" + i + "'");
           };
-
            // Console log end of loop
           console.log("end of loop");
 
@@ -202,19 +210,25 @@
             //prevent initial submission
             event.preventDefault();
             // Console log start of 'storeText' function
-            console.log("start of storeText function");
+            console.log("start of storeText onClick function");
+
+            // Set variable equal to value of textarea
+            // userInput = $(this.textStamp.val());
+            userInput = $(this).closest('textarea').find('texStamp').val();
+            // userInputString = $(JSON.stringify(userInput));
+            console.log("User Input is '" + userInput + "'");
  
+            inputHour = $(this.hourStamp);
+            console.log(inputHour);
             // Locally Store input that is in current row's textarea
-            localStorage.setItem("entry", userInput);
+            localStorage.setItem(inputHour, JSON.stringify(userInput));
             console.log("storing entry...");
-            console.log("User Input is " + userInput);
-            alert(localStorage.getItem("entry") + " has been stored");
+            
+            alert(localStorage.getItem(inputHour) + " has been stored");
 
             // Console log end of 'storeText' function
-            console.log("end of storeText function");
+            console.log("end of storeText onClick function");
         });
-        
-        
 
         // Console log end of function
         console.log("end of 'createTimeBlocks' function");
@@ -222,11 +236,13 @@
       };
       
 
-      
-
-
-
       // Make and call function to retrieve stored data on document ready
+      function retrieveData() {
+        localStorage.getItem(inputHour);
+      };
+      // retrieveData();
+
+
 
 
       // *Don’t forget to Call functions*      
