@@ -56,3 +56,5 @@ Progress:
 2020.01.31.2005 - For index.html, I added more comments and console.logs to the script area of the code to further detail code and to allow quality control through console.  I changed the local variables 'textStamp' and 'hourStamp' to be global.
 
 2020.01.31.2030 - For index.html, I added more comments and console.logs to the script area of the code to further detail the code and to allow for ease of quality control through console.  I moved the function 'setRowColors()' inside of the function 'createTimeBlocks()' near the end of the function.  This allowed for colors to dynamically appear in the textareas based on what the current time is.
+
+2020.02.01.1900- For index.html, I updated the positions of several variables to be within the for loop of the timeBlocks() function.  I have been tinkering with trying to store local data, but have so far been able to store 'undefined.'  I will submit what I have currently, and continue to work on a solution to issue with storing data.

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link
       rel="stylesheet"
@@ -74,6 +74,7 @@
           
           // In for loop:
           // Console log start of row
+          console.log("---------");  
           console.log("start of 'row" + i + "'");
           
           // Create div with class ‘row’ and Id row[i]
@@ -130,11 +131,11 @@
           console.log(textStamp);
 
           // For colSave, append a button with an appended p element with "Save"
-          let saveButton = $("<button>").addClass("");
+          let saveButton = $("<button>").addClass("saveButton");
           saveButton.attr("id", "saveButton"+ i);
           console.log(saveButton);
           
-          let saveStamp = $("<p>").addClass("");
+          let saveStamp = $("<p>").addClass("saveStamp");
           saveStamp.attr("id", "saveStamp"+ i);
           saveStamp.text("Save");
           console.log(saveStamp);
@@ -152,12 +153,19 @@
           //in the id of the current row's hourStamp
           hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
           console.log("current row parsed as integer: ");
-          console.log(parseInt($(hourStamp).attr('id').replace(/hourStamp/, '')));
+          console.log(hourStampNumb);
+
+          // Set variable equal to each textStamp id #
+          inputNumb = parseInt($(textStamp).attr('id').replace(/textArea/, ''));
+          console.log(inputNumb);
+          userInput = $("#textArea"+ i).val();
+          console.log("User Input is " + userInput);
           
           // Check current time and set row textarea bg colors dynamically
           //based on future, current hour, and past
           function setRowColors() {
             // Console log start of function
+            console.log("---");  
             console.log("start of 'setRowColors' function");
 
             let currentTime = moment().format();
@@ -177,24 +185,44 @@
             }    
             // Console log end of function
             console.log("end of 'setRowColors' function");  
-            console.log("-----");  
+           
           };
           // *Don’t forget to Call functions*  
           setRowColors();
 
           // Console log end of row
           console.log("end of 'row" + i + "'");
-        };
+          };
+
+           // Console log end of loop
+          console.log("end of loop");
+
+          // Make function to store textarea input on click for rows when blue button is clicked
+        $(".saveButton").on("click", function (event) {
+            //prevent initial submission
+            event.preventDefault();
+            // Console log start of 'storeText' function
+            console.log("start of storeText function");
+ 
+            // Locally Store input that is in current row's textarea
+            localStorage.setItem("entry", userInput);
+            console.log("storing entry...");
+            console.log("User Input is " + userInput);
+            alert(localStorage.getItem("entry") + " has been stored");
+
+            // Console log end of 'storeText' function
+            console.log("end of storeText function");
+        });
+        
+        
+
         // Console log end of function
         console.log("end of 'createTimeBlocks' function");
-        console.log("-----");
+        console.log("---------");
       };
       
-      
-      
 
-
-      // Make function to store textarea input on click for rows when blue button is clicked
+      
 
 
 
@@ -203,31 +231,6 @@
 
       // *Don’t forget to Call functions*      
       createTimeBlocks();
-      
-      
-
-
-
-
-
-
-
-      
-      
-      
-
-
-      
-      
-
-
-
-
-      
-
-      
-
-
 
 
       });
