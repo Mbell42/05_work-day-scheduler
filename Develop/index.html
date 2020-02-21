@@ -153,9 +153,9 @@
           //in the id of the current row's hourStamp
           hourStampNumb = parseInt($(hourStamp).attr('id').replace(/hourStamp/, ''));
           console.log("current row parsed as integer: ");
-          console.log("hourStampNumb is " + hourStampNumb);
+          console.log("hourStampNumb is \n" + hourStampNumb);
           
-          // Check current time and set row textarea bg colors dynamically
+          // Check current time and set ROW textarea BG COLORS dynamically
           //based on future, current hour, and past
           function setRowColors() {
             // Console log start of function
@@ -170,10 +170,12 @@
             $(saveStamp).css("padding","8px");
 
             let currentTime = moment().format();
-            let nextHour = currentTime.substr(currentTime.length - 5); 
-            console.log("next hour is " + nextHour);
-            console.log("next hour parsed as integer below: ");
-            console.log(parseInt(nextHour));
+            // let currentTime = moment().calendar();
+            console.log("currentTime: \n",currentTime);
+            
+            let nextHour = (parseInt(currentTime.substr(11,2)) + 1); 
+            console.log("next hour is \n" + nextHour);
+            console.log("next hour parsed as integer below: \n", parseInt(nextHour));
            
             if (parseInt(nextHour) > hourStampNumb) {
               $(textStamp).css("background-color","blue");

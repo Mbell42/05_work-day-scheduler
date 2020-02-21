@@ -62,3 +62,5 @@ Progress:
 2020.02.01.2025 - For index.html, I updated the setRowColors() function to include styles for the hourStamp and saveStamp.  I have continued tinkering with trying to store local data, but have so far been able to store 'undefined.'
 
 2020.02.01.2345 - For index.html, I fixed store local data issue and created get locl data function that runs when page loads.
+
+2020.02.21.1548 - For index.html, I fixed 'next hour' issue such that the correct next hour properly displays with a bg color of green. I also cleaned up some of the code, refactoring and removing uneeded code to reduce lines.
